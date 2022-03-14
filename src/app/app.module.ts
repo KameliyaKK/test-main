@@ -8,7 +8,7 @@ import { AngularYandexMapsModule, YaConfig } from 'angular8-yandex-maps';
 import { FormComponent } from './form/form.component';
 
 const mapConfig: YaConfig = {
-  apikey: '9e387b2c-464a-4c77-b4dc-34cd5f950664',
+  apikey: '9e387b2c-464a-4c77-b4dc-34cd5f950664',  // API_KEY
   lang: 'ru_RU',
 };
 
@@ -23,6 +23,7 @@ const mapConfig: YaConfig = {
     AppRoutingModule,
     NgbModule,
     AngularYandexMapsModule.forRoot(mapConfig),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
