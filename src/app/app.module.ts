@@ -6,26 +6,28 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapComponent } from './map/map.component';
 import { AngularYandexMapsModule, YaConfig } from 'angular8-yandex-maps';
 import { FormComponent } from './form/form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const mapConfig: YaConfig = {
-  apikey: '9e387b2c-464a-4c77-b4dc-34cd5f950664',  // API_KEY
-  lang: 'ru_RU',
+	apikey: '9e387b2c-464a-4c77-b4dc-34cd5f950664',  // API_KEY
+	lang: 'ru_RU',
 };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MapComponent,
-    FormComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    AngularYandexMapsModule.forRoot(mapConfig),
+	declarations: [
+		AppComponent,
+		MapComponent,
+		FormComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		NgbModule,
+		AngularYandexMapsModule.forRoot(mapConfig),
+		HttpClientModule,
 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
