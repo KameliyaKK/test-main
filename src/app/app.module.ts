@@ -7,7 +7,7 @@ import { MapComponent } from './map/map.component';
 import { AngularYandexMapsModule, YaConfig } from 'angular8-yandex-maps';
 import { FormComponent } from './form/form.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 const mapConfig: YaConfig = {
@@ -27,7 +27,7 @@ const mapConfig: YaConfig = {
 		NgbModule,
 		AngularYandexMapsModule.forRoot(mapConfig),
 		HttpClientModule,
-		// FormsModule,
+		FormsModule,
 
 	],
 	providers: [],

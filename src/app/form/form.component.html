@@ -1,30 +1,40 @@
-<form>
-	<div class="col-12">
-		<p>Форма для заполнения</p>
-	</div>
-	<div class="container">
+<!-- json представление вывод-->
+<div class="container">
+	<form (ngSubmit)="onSubmited()" #userForm="ngForm">
+		<div class="col-12">
+			<p>Форма для заполнения</p>
+		</div>
 		<div class="row mb-3 form-group">
 			<label for="inputName" class="col-sm-2 col-form-label">Имя</label>
 			<div class="col-sm-10">
-				<input type="name" class="form-control" id="inputName" placeholder="Имя Фамилия" #name>
+				<input #name required type="name" [(ngModel)]="dataService.inputName" name="inputName" class="form-control"
+					id="inputName" placeholder="Имя Фамилия">
 			</div>
 		</div>
 		<div class="row mb-3 form-group">
 			<label for="inputPhone" class="col-sm-2 col-form-label">Телефон</label>
 			<div class="col-sm-10">
-				<input type="tel" class="form-control" id="inputPhone" placeholder="Телефон" #tel>
+				<input #tel #inputPhone="ngModel" required type="tel" [(ngModel)]="dataService.inputPhone" name="inputPhone"
+					class="form-control" id="inputPhone" placeholder="Телефон">
+			</div>
+			<div class="alert alert-danger" [hidden]="inputPhone.valid 
+			|| inputPhone.pristine">
+				Поле обязательно для заполнения
 			</div>
 		</div>
 		<div class="row mb-3 form-group">
 			<label for="inputAddress" class="col-sm-2 col-form-label">Адрес</label>
 			<div class="col-sm-10">
-				<input type="address" class="form-control" id="inputAddress" placeholder="Адрес" #adres>
+				<input #adres required type="address" [(ngModel)]="dataService.inputAddress" name="inputAddress"
+					class="form-control" id="inputAddress" placeholder="Адрес">
 			</div>
 		</div>
 
-		<div class="col-12 button "><button type="submit" (click)="SendForm(name.value, tel.value, adres.value)"
-				class="btn btn-primary">Отправить</button></div>
+		<div class="col-12 button "><button type="submit" class="btn  btn-primary" [disabled]="!userForm.form.valid"
+				(click)="SendForm(name.value, tel.value, adres.value)">Сохранить</button>
+			<!-- <button type="reset" (click)="cleanButtonClicked()" class="btn  btn-light">Очистить</button> -->
+		</div>
 
-	</div>
+	</form>
 
-</form>
+</div>
