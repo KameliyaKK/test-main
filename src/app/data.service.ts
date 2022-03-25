@@ -35,20 +35,7 @@ export class DataService {
 	SendDataForm(data: any): Observable<any> {
 
 
-		//формирование урл параметров через fromObject
-		const params = new HttpParams({
-			fromObject: {
-				model: 'cam',
-				method: 'getArchive',
-				params: '{"stream":"1"}'
-			}
-		});
-		return this.http.get('http://localhost:8881', { params, responseType: 'json' })
-			.pipe(
-				map(data => {
-					return data;
-				}),
-			);
+
 
 
 		/*
@@ -67,17 +54,17 @@ export class DataService {
 		/*
 		  POST отправка формы
 		 */
-		// const httpOptions = {
-		// 	headers: new HttpHeaders({
-		// 		'Content-Type': 'application/x-www-form-urlencoded'
-		// 	})
-		// };
-		// return this.http.post('http://localhost:8881/data', data, httpOptions)
-		// 	.pipe(
-		// 		map(data => {
-		// 			return data;
-		// 		}),
-		// 	);
+		const httpOptions = {
+			headers: new HttpHeaders({
+				'Content-Type': 'application/x-www-form-urlencoded'
+			})
+		};
+		return this.http.post('http://localhost:8881/data', data, httpOptions)
+			.pipe(
+				map(data => {
+					return data;
+				}),
+			);
 
 
 
