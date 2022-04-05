@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [point.lat, point.lon],
+						coordinates: [element.COORDINATES],
 					},
 					options: {
 						"iconLayout": 'default#imageWithContent',
@@ -43,9 +43,9 @@ export class MapComponent implements OnInit {
 						"iconImageSize": [30, 42],
 						"iconImageOffset": [-3, -42],
 					},
-					properties: {
-						data
-					},
+					// properties: {
+					// 	data
+					// },
 
 				});
 			});
